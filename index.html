@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smiley Friendly Plumber — Plumbers in Tucson, AZ</title>
+<meta name="description" content="Smiley Friendly Plumber — licensed, insured plumbers in Tucson, Arizona. 24/7 emergency service, drain cleaning, water heaters and leak repair across Pima County. Call (520) 204-0363.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --navy:#0a1628;
+    --navy2:#0f2044;
+    --navy3:#162d5e;
+    --red:#e8192c;
+    --red2:#ff2d40;
+    --red-light:#fff1f2;
+    --gold:#f5a623;
+    --white:#ffffff;
+    --off:#f4f6fa;
+    --text:#1a2540;
+    --muted:#5a6a8a;
+    --border:#dde3f0;
+    --radius:10px;
+    --font-display:'Barlow Condensed',sans-serif;
+    --font-body:'DM Sans',sans-serif;
+    --shadow:0 4px 24px rgba(10,22,40,0.10);
+    --shadow-lg:0 12px 48px rgba(10,22,40,0.18);
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);color:var(--text);background:#fff;overflow-x:hidden}
+
+  /* ── NAV ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--navy);height:60px;display:flex;align-items:center;padding:0 4%;gap:12px;box-shadow:0 2px 16px rgba(0,0,0,.3)}
+  .nav-logo{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:1px;white-space:nowrap;flex-shrink:0}
+  .nav-logo span{color:var(--red2)}
+  .nav-links{display:flex;gap:22px;margin-left:auto}
+  .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.875rem;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:#fff}
+  .nav-call{display:flex;align-items:center;gap:8px;background:var(--red);color:#fff;padding:9px 16px;border-radius:6px;text-decoration:none;font-weight:700;font-family:var(--font-display);letter-spacing:.5px;font-size:1rem;white-space:nowrap;transition:background .2s;margin-left:auto;flex-shrink:0}
+  .nav-call:hover{background:var(--red2)}
+  .nav-call svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
+  .nav-call-text{display:inline}
+
+  /* ── HERO ── */
+  .hero{min-height:100svh;background:var(--navy);padding-top:60px;display:grid;grid-template-columns:1fr 420px;gap:0;align-items:center;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 20% 60%,rgba(232,25,44,.12) 0%,transparent 70%)}
+  .hero-pattern{position:absolute;top:0;right:0;bottom:0;width:55%;opacity:.05;background-image:repeating-linear-gradient(0deg,#fff 0,#fff 1px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,#fff 0,#fff 1px,transparent 1px,transparent 40px)}
+  .hero-left{padding:60px 5% 60px 8%;position:relative;z-index:2}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+  .htag{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);padding:5px 13px;border-radius:20px;font-size:.78rem;font-weight:500;animation:tagFloat 3s ease-in-out infinite}
+  .htag:nth-child(2){animation-delay:.4s}.htag:nth-child(3){animation-delay:.8s}.htag:nth-child(4){animation-delay:1.2s}.htag:nth-child(5){animation-delay:1.6s}
+  @keyframes tagFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  .hero h1{font-family:var(--font-display);font-size:clamp(2.6rem,5.5vw,5.2rem);font-weight:900;color:#fff;line-height:1;letter-spacing:1px;margin-bottom:16px;text-transform:uppercase}
+  .hero h1 span{color:var(--red2)}
+  .hero-sub{font-size:1rem;color:rgba(255,255,255,.65);line-height:1.7;max-width:480px;margin-bottom:28px}
+  .trust-badges{display:flex;flex-wrap:wrap;gap:12px}
+  .tbadge{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.85);font-size:.82rem;font-weight:500}
+  .tbadge svg{width:16px;height:16px;fill:var(--gold);flex-shrink:0}
+  .hero-right{padding:40px 5% 40px 20px;display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
+
+  /* Hero mobile CTA (only shows on mobile) */
+  .hero-mobile-cta{display:none;margin-top:28px;flex-direction:column;gap:12px}
+  .btn-call-big{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--red);color:#fff;padding:16px 24px;border-radius:10px;text-decoration:none;font-family:var(--font-display);font-size:1.4rem;font-weight:800;letter-spacing:.5px;text-transform:uppercase;transition:background .2s;width:100%}
+  .btn-call-big:hover{background:var(--red2)}
+  .btn-call-big svg{width:22px;height:22px;fill:#fff}
+  .btn-book-mobile{width:100%;background:transparent;border:2px solid rgba(255,255,255,.3);color:#fff;padding:13px 24px;border-radius:10px;font-family:var(--font-display);font-size:1.2rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;transition:all .2s}
+  .btn-book-mobile:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+  /* ── BOOKING CARD ── */
+  .booking-card{background:#fff;border-radius:16px;padding:28px;box-shadow:var(--shadow-lg);width:100%;max-width:380px}
+  .booking-card h3{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--navy);margin-bottom:4px;text-transform:uppercase}
+  .booking-card p{color:var(--muted);font-size:.85rem;margin-bottom:16px}
+  .form-group{margin-bottom:12px}
+  .form-group label{display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px}
+  .form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 13px;border:1.5px solid var(--border);border-radius:8px;font-family:var(--font-body);font-size:.95rem;color:var(--text);outline:none;transition:border .2s;-webkit-appearance:none;appearance:none}
+  .form-group input:focus,.form-group select:focus{border-color:var(--navy)}
+  .form-group textarea{height:70px;resize:none}
+  .btn-book{width:100%;background:var(--red);color:#fff;border:none;padding:14px;border-radius:8px;font-family:var(--font-display);font-size:1.25rem;font-weight:700;letter-spacing:.5px;cursor:pointer;transition:all .2s;text-transform:uppercase;-webkit-tap-highlight-color:transparent}
+  .btn-book:hover{background:var(--red2);transform:translateY(-1px)}
+  .btn-book.confirmed{background:#22c55e}
+  .form-note{text-align:center;font-size:.72rem;color:var(--muted);margin-top:10px}
+  .form-success{font-size:.82rem;text-align:center;margin-top:8px;min-height:1.2em;line-height:1.5}
+  .form-success.success{color:#16a34a;font-weight:500}
+  .form-success.error{color:var(--red);font-weight:500}
+
+  /* ── MOBILE BOOKING SHEET (modal) ── */
+  .sheet-overlay{display:none;position:fixed;inset:0;background:rgba(10,22,40,.6);z-index:2000;align-items:flex-end;-webkit-tap-highlight-color:transparent}
+  .sheet-overlay.active{display:flex}
+  .sheet{background:#fff;border-radius:20px 20px 0 0;padding:28px 20px 40px;width:100%;max-height:92svh;overflow-y:auto;animation:slideUp .32s cubic-bezier(.22,.68,0,1.2)}
+  @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+  .sheet-handle{width:40px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 20px}
+  .sheet h3{font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:var(--navy);text-transform:uppercase;margin-bottom:4px}
+  .sheet p.sheet-sub{color:var(--muted);font-size:.85rem;margin-bottom:18px}
+
+  /* ── SECTIONS COMMON ── */
+  section{padding:72px 6%}
+  .section-label{font-size:.78rem;font-weight:700;letter-spacing:2px;color:var(--red);text-transform:uppercase;margin-bottom:8px}
+  .section-title{font-family:var(--font-display);font-size:clamp(1.8rem,5vw,3rem);font-weight:800;color:var(--navy);text-transform:uppercase;line-height:1.1;margin-bottom:14px}
+  .section-sub{color:var(--muted);font-size:.95rem;max-width:520px;line-height:1.7;margin-bottom:40px}
+
+  /* ── SERVICES ── */
+  .services-bg{background:var(--off)}
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .scard{background:#fff;border-radius:var(--radius);padding:24px 20px;position:relative;overflow:hidden;border:1.5px solid var(--border);transition:transform .25s,box-shadow .25s,border-color .25s;cursor:default}
+  .scard::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+  .scard:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
+  .scard:hover::before{transform:scaleX(1)}
+  .scard-icon{width:48px;height:48px;background:var(--red-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;transition:background .25s,transform .25s}
+  .scard:hover .scard-icon{background:var(--red);transform:scale(1.1) rotate(-5deg)}
+  .scard-icon svg{width:24px;height:24px;fill:var(--red);transition:fill .25s}
+  .scard:hover .scard-icon svg{fill:#fff}
+  .scard h4{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:6px;text-transform:uppercase}
+  .scard p{font-size:.85rem;color:var(--muted);line-height:1.65}
+
+  /* ── WHY US ── */
+  .why-bg{background:var(--navy)}
+  .why-bg .section-title{color:#fff}
+  .why-bg .section-sub{color:rgba(255,255,255,.55)}
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .why-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:24px 20px}
+  .why-num{font-family:var(--font-display);font-size:2.8rem;font-weight:900;color:var(--red2);line-height:1;margin-bottom:10px;opacity:.9}
+  .why-card h4{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:6px;text-transform:uppercase}
+  .why-card p{font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.65}
+
+  /* ── REVIEWS ── */
+  .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .rcard{background:#fff;border:1.5px solid var(--border);border-radius:var(--radius);padding:24px 20px}
+  .rcard-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .ravatar{width:44px;height:44px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;font-weight:700;color:#fff;flex-shrink:0}
+  .rname{font-weight:600;font-size:.9rem;color:var(--navy)}
+  .rdate{font-size:.75rem;color:var(--muted)}
+  .stars{display:flex;gap:3px;margin-bottom:10px}
+  .stars svg{width:15px;height:15px;fill:var(--gold)}
+  .rcard p{font-size:.875rem;color:var(--muted);line-height:1.7;font-style:italic}
+
+  /* ── PROCESS ── */
+  .process-bg{background:var(--off)}
+  .process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px;position:relative}
+  .process-steps::before{content:'';position:absolute;top:32px;left:80px;right:80px;height:2px;background:var(--border);z-index:0}
+  .pstep{text-align:center;position:relative;z-index:1}
+  .pnum{width:64px;height:64px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;border:4px solid var(--off)}
+  .pnum-inner{font-family:var(--font-display);font-size:1.5rem;font-weight:900;color:#fff}
+  .pstep h4{font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:6px;text-transform:uppercase}
+  .pstep p{font-size:.85rem;color:var(--muted);line-height:1.65}
+
+  /* ── URGENCY BANNER ── */
+  .urgency{background:var(--red);padding:32px 6%;text-align:center}
+  .urgency-inner{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+  .bell{animation:bellRing 1.5s ease-in-out infinite;display:inline-flex}
+  @keyframes bellRing{0%,100%{transform:rotate(0)}10%{transform:rotate(15deg)}20%{transform:rotate(-12deg)}30%{transform:rotate(10deg)}40%{transform:rotate(-8deg)}50%{transform:rotate(0)}}
+  .bell svg{width:36px;height:36px;fill:#fff}
+  .urgency-text{text-align:left}
+  .urgency-text strong{font-family:var(--font-display);font-size:clamp(1rem,2.5vw,1.4rem);font-weight:800;color:#fff;letter-spacing:.5px;text-transform:uppercase;display:block}
+  .urgency-phone{font-family:var(--font-display);font-size:clamp(2rem,6vw,3.8rem);font-weight:900;color:#fff;letter-spacing:2px;text-decoration:none;display:block;line-height:1;transition:opacity .2s}
+  .urgency-phone:hover{opacity:.85}
+
+  /* ── SERVICE AREAS ── */
+  .areas-inner{display:flex;flex-wrap:wrap;gap:10px}
+  .apill{padding:9px 18px;border-radius:30px;border:1.5px solid var(--navy);color:var(--navy);font-size:.85rem;font-weight:600;cursor:default;transition:all .22s}
+  .apill:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+  /* ── FAQ ── */
+  .faq-bg{background:var(--off)}
+  .faq-list{max-width:720px;margin:0 auto}
+  .faq-item{border-bottom:1.5px solid var(--border);overflow:hidden}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;padding:18px 4px;cursor:pointer;gap:16px;user-select:none;-webkit-tap-highlight-color:transparent}
+  .faq-q span{font-weight:600;font-size:.95rem;color:var(--navy)}
+  .faq-icon{width:24px;height:24px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s,background .2s}
+  .faq-icon svg{width:12px;height:12px;fill:#fff;transition:transform .3s}
+  .faq-item.open .faq-icon{background:var(--red)}
+  .faq-item.open .faq-icon svg{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s}
+  .faq-a-inner{padding:0 4px 18px;color:var(--muted);font-size:.88rem;line-height:1.75}
+  .faq-item.open .faq-a{max-height:300px}
+
+  /* ── CONTACT ── */
+  .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .trust-list{list-style:none;display:flex;flex-direction:column;gap:18px}
+  .trust-list li{display:flex;align-items:flex-start;gap:12px}
+  .tcheck{width:34px;height:34px;border-radius:50%;background:var(--red-light);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+  .tcheck svg{width:17px;height:17px;fill:var(--red)}
+  .trust-list h5{font-weight:700;font-size:.9rem;color:var(--navy);margin-bottom:2px}
+  .trust-list p{font-size:.82rem;color:var(--muted);line-height:1.6}
+  .contact-form-card{background:var(--off);border-radius:16px;padding:32px 28px}
+  .contact-form-card h3{font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:var(--navy);text-transform:uppercase;margin-bottom:4px}
+  .contact-form-card .sub{color:var(--muted);font-size:.85rem;margin-bottom:20px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+  /* ── FOOTER ── */
+  footer{background:var(--navy);color:rgba(255,255,255,.45);text-align:center;padding:28px 6%;font-size:.8rem}
+  footer strong{color:rgba(255,255,255,.7)}
+
+  /* ── MOBILE STICKY CALL BTN ── */
+  .mobile-call{display:none;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:999;background:var(--red);color:#fff;padding:14px 28px;border-radius:40px;font-family:var(--font-display);font-size:1.25rem;font-weight:800;text-decoration:none;align-items:center;gap:10px;letter-spacing:.5px;box-shadow:0 8px 30px rgba(232,25,44,.45);white-space:nowrap;animation:mobilePulse 2.5s ease-in-out infinite;-webkit-tap-highlight-color:transparent}
+  @keyframes mobilePulse{0%,100%{box-shadow:0 8px 30px rgba(232,25,44,.45)}50%{box-shadow:0 8px 40px rgba(232,25,44,.7)}}
+  .mobile-call svg{width:19px;height:19px;fill:#fff}
+
+  /* ── SCROLL REVEAL ── */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.22,.68,0,1.2),transform .6s cubic-bezier(.22,.68,0,1.2)}
+  .reveal.visible{opacity:1;transform:none}
+  .reveal-delay-1{transition-delay:.1s}
+  .reveal-delay-2{transition-delay:.2s}
+  .reveal-delay-3{transition-delay:.3s}
+  .reveal-delay-4{transition-delay:.4s}
+  .reveal-delay-5{transition-delay:.5s}
+  .reveal-delay-6{transition-delay:.6s}
+
+  /* =============================================
+     RESPONSIVE BREAKPOINTS
+  ============================================= */
+
+  /* Tablet landscape: ≤1024px */
+  @media(max-width:1024px){
+    .hero{grid-template-columns:1fr 380px}
+    .hero-left{padding:50px 4% 50px 5%}
+    .hero-right{padding:40px 4% 40px 16px}
+  }
+
+  /* Tablet portrait: ≤900px */
+  @media(max-width:900px){
+    nav{height:56px}
+    .nav-logo{font-size:1.35rem}
+    .nav-links{display:none}
+    .nav-call{padding:8px 14px;font-size:.95rem}
+
+    .hero{grid-template-columns:1fr;min-height:auto;padding-top:56px}
+    .hero-left{padding:48px 5% 40px}
+    .hero-right{display:none} /* hide desktop booking card */
+    .hero-mobile-cta{display:flex}
+
+    .contact-inner{grid-template-columns:1fr;gap:40px}
+    .form-row{grid-template-columns:1fr 1fr}
+
+    .mobile-call{display:flex}
+
+    .process-steps::before{display:none}
+    .process-steps{grid-template-columns:1fr 1fr;gap:24px}
+  }
+
+  /* Mobile large: ≤600px */
+  @media(max-width:600px){
+    section{padding:56px 5%}
+
+    .hero-left{padding:36px 5% 32px}
+    .hero h1{font-size:clamp(2.2rem,11vw,3rem)}
+    .hero-sub{font-size:.9rem}
+    .hero-tags{gap:6px}
+    .htag{font-size:.72rem;padding:4px 11px}
+    .trust-badges{gap:10px}
+    .tbadge{font-size:.78rem}
+
+    .services-grid{grid-template-columns:1fr}
+    .why-grid{grid-template-columns:1fr}
+    .reviews-grid{grid-template-columns:1fr}
+
+    .process-steps{grid-template-columns:1fr;gap:28px}
+    .pstep{display:grid;grid-template-columns:auto 1fr;gap:16px;text-align:left;align-items:start}
+    .pnum{width:52px;height:52px;margin:0;flex-shrink:0}
+    .pnum-inner{font-size:1.25rem}
+    .pstep h4{margin-top:4px}
+
+    .urgency-inner{flex-direction:column;gap:12px;align-items:center}
+    .urgency-text{text-align:center}
+    .bell{display:none}
+
+    .urgency-phone{font-size:clamp(2rem,10vw,3rem);letter-spacing:1px}
+
+    .form-row{grid-template-columns:1fr}
+
+    .contact-form-card{padding:24px 18px}
+
+    .section-title{font-size:clamp(1.6rem,7vw,2.2rem)}
+    .section-sub{font-size:.9rem;margin-bottom:32px}
+
+    .faq-q span{font-size:.88rem}
+
+    .areas-inner{gap:8px}
+    .apill{font-size:.8rem;padding:8px 14px}
+
+    .mobile-call{padding:13px 24px;font-size:1.15rem;bottom:12px}
+
+    footer{padding:24px 5%;font-size:.75rem}
+  }
+
+  /* Mobile small: ≤380px */
+  @media(max-width:380px){
+    .nav-logo{font-size:1.2rem}
+    .nav-call-text{display:none}
+    .nav-call{padding:8px 12px}
+    .nav-call svg{width:18px;height:18px}
+
+    .hero h1{font-size:clamp(2rem,12vw,2.6rem)}
+    .hero-sub{font-size:.85rem}
+
+    .btn-call-big{font-size:1.2rem;padding:14px 18px}
+    .btn-book-mobile{font-size:1.1rem}
+  }
+
+  /* ── Template additions: starting prices + recent-work photos ── */
+  .scard-price{margin-top:12px;font-family:var(--font-display);font-size:1.1rem;font-weight:700;letter-spacing:.5px;color:var(--red)}
+  .work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .work-card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1.5px solid var(--border);box-shadow:var(--shadow)}
+  .work-card img{width:100%;height:220px;object-fit:cover;display:block}
+  .work-card figcaption{padding:12px 16px;font-weight:600;font-size:.9rem;color:var(--navy)}
+  @media(max-width:768px){.work-grid{grid-template-columns:1fr}.work-card img{height:200px}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Smiley Friendly Plumber</div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#why">Why Us</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="tel:+15202040363" class="nav-call">
+    <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+    <span class="nav-call-text">(520) 204-0363</span>
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-pattern"></div>
+  <div class="hero-left">
+    <div class="hero-tags">
+      <span class="htag">📞 Same-Day Service</span>
+      <span class="htag">🛡 Licensed & Insured</span>
+      <span class="htag">✅ 5-Star Rated</span>
+      <span class="htag">🚰 Plumbing Specialists</span>
+      <span class="htag">💯 No-Fix No-Fee</span>
+    </div>
+    <h1>Plumbing Done Right.<br><span>Smiley Friendly Plumber</span></h1>
+    <p class="hero-sub">Tucson's trusted local plumbers — repairs, drains, water heaters, and remodels done right the first time, with prompt service and upfront pricing.</p>
+    <div class="trust-badges">
+      <div class="tbadge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>4.9/5 Rating</div>
+      <div class="tbadge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>1,800+ Jobs Completed</div>
+      <div class="tbadge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Same-Day Service</div>
+    </div>
+
+    <!-- Mobile-only CTAs inside hero -->
+    <div class="hero-mobile-cta">
+      <a href="tel:+15202040363" class="btn-call-big">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        Call Now
+      </a>
+      <button class="btn-book-mobile" onclick="openSheet()">Request Service</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="booking-card">
+      <h3>Request Service</h3>
+      <p>Tell us what you need — we'll call you back shortly to schedule a visit.</p>
+      <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleFormSubmit(event,'heroBookBtn','heroSuccess')">
+        <input type="hidden" name="access_key" value="9fc4d602-c723-42b7-bc20-b568b80ce3e9">
+        <input type="hidden" name="subject" value="🚨 New Request Service Request — Smiley Friendly Plumber">
+        <input type="hidden" name="from_name" value="Smiley Friendly Plumber Website">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" name="name" placeholder="John Smith" autocomplete="name" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" name="phone" placeholder="(520) 204-0363" autocomplete="tel" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" placeholder="john@email.com" autocomplete="email" required>
+        </div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select name="service" required>
+            <option value="">Select a service…</option>
+            <option>Burst Pipe</option><option>Sewage Backup</option><option>Drain Problem</option><option>Water Heater Failure</option><option>Leak Detection</option><option>Water Damage</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Describe the Problem</label>
+          <textarea name="message" placeholder="e.g. Water is leaking from under the kitchen sink, flooding the cabinet. It started 20 minutes ago…" style="height:90px" required></textarea>
+        </div>
+        <button class="btn-book" type="submit" id="heroBookBtn">Request a Plumber →</button>
+        <p class="form-success" id="heroSuccess"></p>
+        <p class="form-note">🔒 A licensed plumber will call you back in under 5 minutes.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <p class="section-label reveal">Our Services</p>
+  <h2 class="section-title reveal reveal-delay-1">We Fix It All — Fast</h2>
+  <p class="section-sub reveal reveal-delay-2">Every job we take on comes with upfront pricing, licensed technicians, and a simple promise: we don't leave until the work is done right.</p>
+  <div class="services-grid">
+    <div class="scard reveal reveal-delay-1">
+      <div class="scard-icon"><svg viewBox="0 0 24 24"><path d="M21.5 8.5l-1.5-1.5-2 2-1-1 2-2-1.5-1.5-2 2c-.78.78-.78 2.05 0 2.83L17 11.33l-9.17 9.17a2 2 0 01-2.83-2.83L14.17 8.5 16.67 11c.78.78 2.05.78 2.83 0l2-2z"/></svg></div>
+      <h4>Burst Pipes</h4>
+      <p>A burst pipe can flood a home in minutes. We find the break, stop the water, and repair the line so your water is back on and your home stays dry.</p>
+      <p class="scard-price">Starting from $249</p>
+    </div>
+    <div class="scard reveal reveal-delay-2">
+      <div class="scard-icon"><svg viewBox="0 0 24 24"><path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z"/></svg></div>
+      <h4>Drain Cleaning</h4>
+      <p>Blocked drains, overflowing sinks, and backed-up toilets handled with professional hydro-jetting and snake equipment.</p>
+      <p class="scard-price">Starting from $129</p>
+    </div>
+    <div class="scard reveal reveal-delay-3">
+      <div class="scard-icon"><svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 19.5L5.71 21l1-1.5A4.49 4.49 0 008 20c4 0 4-2 8-2s4 2 8 2v-2c-4 0-4-2-8-2-1.54 0-2.66.28-3.6.7C14.77 11.66 18 10.5 21 10l-.5-2H17z"/></svg></div>
+      <h4>Sewage Backups</h4>
+      <p>Raw sewage backup is a health hazard. We pump, clear the blockage, and sanitize — restoring safe conditions the same day.</p>
+      <p class="scard-price">Starting from $299</p>
+    </div>
+    <div class="scard reveal reveal-delay-4">
+      <div class="scard-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18v13H3zm2-4h14v3H5zm7 6v9m-4-4h8"/></svg></div>
+      <h4>Water Heater Failure</h4>
+      <p>No hot water? We repair or replace gas and electric water heaters, including tankless systems — often the same day.</p>
+      <p class="scard-price">Starting from $240</p>
+    </div>
+    <div class="scard reveal reveal-delay-5">
+      <div class="scard-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18v4l-2 2v12H5V9L3 7zm8 5v3H9v2h2v3h2v-3h2v-2h-2V8z"/></svg></div>
+      <h4>Leak Detection</h4>
+      <p>Hidden leaks destroy walls and foundations. We use non-invasive thermal and acoustic tools to find and fix leaks with minimal disruption.</p>
+      <p class="scard-price">Starting from $185</p>
+    </div>
+    <div class="scard reveal reveal-delay-6">
+      <div class="scard-icon"><svg viewBox="0 0 24 24"><path d="M12 1a7 7 0 017 7c0 5-7 14-7 14S5 13 5 8a7 7 0 017-7zm0 9.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></svg></div>
+      <h4>Leak & Flood Repairs</h4>
+      <p>Water where it shouldn't be? We find the source, make the repair, and help you get things dry and back to normal.</p>
+      <p class="scard-price">Starting from $320</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- RECENT WORK — real job photos (template library) -->
+<section id="work">
+  <p class="section-label reveal">Recent Work</p>
+  <h2 class="section-title reveal reveal-delay-1">Real Work, Done Right</h2>
+  <p class="section-sub reveal reveal-delay-2">A look at the kind of work our crew handles every week — new construction rough-in, commercial slab work, and full sewer line replacement.</p>
+  <div class="work-grid">
+    <figure class="work-card reveal reveal-delay-1">
+      <img src="commercial_slab_roughin.jpg" alt="Commercial slab rough-in plumbing by Smiley Friendly Plumber in Tucson">
+      <figcaption>Commercial Slab Rough-In</figcaption>
+    </figure>
+    <figure class="work-card reveal reveal-delay-2">
+      <img src="new_construction_slab.jpg" alt="New construction slab plumbing by Smiley Friendly Plumber in Tucson">
+      <figcaption>New Construction Slab Plumbing</figcaption>
+    </figure>
+    <figure class="work-card reveal reveal-delay-3">
+      <img src="sewer_line_replacement.jpg" alt="Sewer line replacement by Smiley Friendly Plumber in Tucson">
+      <figcaption>Sewer Line Replacement</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-bg" id="why">
+  <p class="section-label reveal" style="color:var(--red2)">Why Smiley Friendly Plumber</p>
+  <h2 class="section-title reveal reveal-delay-1">The Smiley Friendly Plumber Difference</h2>
+  <p class="section-sub reveal reveal-delay-2">Good plumbing work is about showing up, pricing it fairly, and doing it right. Here's why Tucson homeowners call Smiley Friendly Plumber first.</p>
+  <div class="why-grid">
+    <div class="why-card reveal reveal-delay-1">
+      <div class="why-num">01</div>
+      <h4>Prompt Scheduling</h4>
+      <p>We book you a clear arrival window — and we keep it. Urgent problems get priority, with same-day appointments whenever possible.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-2">
+      <div class="why-num">02</div>
+      <h4>Protect Your Home First</h4>
+      <p>Our plumbers prioritize stopping water spread before anything else — protecting your property from the moment they walk in.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-3">
+      <div class="why-num">03</div>
+      <h4>Licensed Plumbers Only</h4>
+      <p>Every Smiley Friendly Plumber technician is fully licensed, insured, and background checked. No trainees on your job — ever.</p>
+    </div>
+    <div class="why-card reveal reveal-delay-4">
+      <div class="why-num">04</div>
+      <h4>12-Month Guarantee</h4>
+      <p>All our work is backed by a full 12-month labor warranty. If the problem returns, so do we — at no charge.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <p class="section-label reveal">Testimonials</p>
+  <h2 class="section-title reveal reveal-delay-1">What Our Clients Say</h2>
+  <p class="section-sub reveal reveal-delay-2">Real jobs. Real homeowners. Real results — from people across Tucson who called Smiley Friendly Plumber.</p>
+  <div class="reviews-grid">
+    <div class="rcard reveal reveal-delay-1">
+      <div class="rcard-top">
+        <div class="ravatar" style="background:#1a2540">VH</div>
+        <div><div class="rname">Verified Homeowner</div><div class="rdate">Verified Customer · 2 weeks ago</div></div>
+      </div>
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p>"Burst pipe at 11pm on a Friday. Smiley Friendly Plumber had a plumber at my door in 40 minutes. Fixed in under two hours. They literally saved our home — I cannot thank them enough."</p>
+    </div>
+    <div class="rcard reveal reveal-delay-2">
+      <div class="rcard-top">
+        <div class="ravatar" style="background:#e8192c">VH</div>
+        <div><div class="rname">Verified Homeowner</div><div class="rdate">Verified Customer · 3 weeks ago</div></div>
+      </div>
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p>"Raw sewage backed up into our bathroom on a Sunday. Smiley Friendly Plumber showed up, cleared the blockage, and sanitized everything. Quote matched the final bill exactly. Lifesavers."</p>
+    </div>
+    <div class="rcard reveal reveal-delay-3">
+      <div class="rcard-top">
+        <div class="ravatar" style="background:#0f2044">VH</div>
+        <div><div class="rname">Verified Homeowner</div><div class="rdate">Verified Customer · 3 weeks ago</div></div>
+      </div>
+      <div class="stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p>"Our water heater burst at 7am and flooded the utility room. Smiley Friendly Plumber was there within an hour, replaced the unit same day, and helped us document damage for insurance. The real deal."</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-bg">
+  <p class="section-label reveal" style="text-align:center">How It Works</p>
+  <h2 class="section-title reveal reveal-delay-1" style="text-align:center">3 Easy Steps</h2>
+  <p class="section-sub reveal reveal-delay-2" style="margin:0 auto 44px;text-align:center">Booking a plumber should be simple. Here's exactly what happens when you call Smiley Friendly Plumber.</p>
+  <div class="process-steps">
+    <div class="pstep reveal reveal-delay-1">
+      <div class="pnum"><span class="pnum-inner">1</span></div>
+      <div>
+        <h4>Call or Book Online</h4>
+        <p>Call us or submit the form. A real person answers — no hold music, no voicemail.</p>
+      </div>
+    </div>
+    <div class="pstep reveal reveal-delay-2">
+      <div class="pnum"><span class="pnum-inner">2</span></div>
+      <div>
+        <h4>We Schedule Your Visit</h4>
+        <p>We confirm a time that works for you and send the tech's name and ETA by text before we arrive.</p>
+      </div>
+    </div>
+    <div class="pstep reveal reveal-delay-3">
+      <div class="pnum"><span class="pnum-inner">3</span></div>
+      <div>
+        <h4>Job Done Right</h4>
+        <p>We complete the work, test everything, clean up, and hand you a 12-month written warranty before we leave.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCY BANNER -->
+<div class="urgency">
+  <div class="urgency-inner">
+    <span class="bell"><svg viewBox="0 0 24 24"><path d="M18 16v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-6 4c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zM3 11h2c0-2.08.8-3.97 2.1-5.39L5.63 4.14A9.97 9.97 0 003 11zm13.9 0H19A9.97 9.97 0 0016.37 4.14L14.9 5.61C16.2 7.03 17 8.92 17 11z"/></svg></span>
+    <div class="urgency-text">
+      <strong>Need a Plumber? We're Ready When You Are.</strong>
+      <a href="tel:+15202040363" class="urgency-phone">(520) 204-0363</a>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE AREAS -->
+<section>
+  <p class="section-label reveal">Coverage</p>
+  <h2 class="section-title reveal reveal-delay-1">Areas We Serve</h2>
+  <p class="section-sub reveal reveal-delay-2">Smiley Friendly Plumber serves Tucson and all of Pima County. Call us from anywhere in our coverage zone and we'll be there.</p>
+  <div class="areas-inner reveal reveal-delay-3">
+    <span class="apill">Tucson</span>
+    <span class="apill">Pima County</span>
+  
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-bg" id="faq">
+  <p class="section-label reveal" style="text-align:center">FAQ</p>
+  <h2 class="section-title reveal reveal-delay-1" style="text-align:center">Common Questions</h2>
+  <p class="section-sub reveal reveal-delay-2" style="margin:0 auto 40px;text-align:center">Everything you need to know before booking.</p>
+  <div class="faq-list">
+    <div class="faq-item reveal" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>How soon can you come out?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div></div>
+      <div class="faq-a"><div class="faq-a-inner">For urgent problems we offer same-day appointments whenever possible, and we'll always give you a clear arrival window when you book. Standard jobs are scheduled at a time that suits you — and we show up on time.</div></div>
+    </div>
+    <div class="faq-item reveal reveal-delay-1" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Do I need to be home for the appointment?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div></div>
+      <div class="faq-a"><div class="faq-a-inner">Yes, an adult (18+) must be present for all service appointments. This is for insurance and safety reasons. If you need to reschedule, give us at least 2 hours notice and there's no cancellation fee.</div></div>
+    </div>
+    <div class="faq-item reveal reveal-delay-2" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Are your technicians licensed and insured?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div></div>
+      <div class="faq-a"><div class="faq-a-inner">Absolutely. Every Smiley Friendly Plumber technician holds a current plumbing license, carries full liability insurance, and passes a thorough background check before joining our team. We never subcontract to unvetted workers.</div></div>
+    </div>
+    <div class="faq-item reveal reveal-delay-3" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>What payment methods do you accept?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div></div>
+      <div class="faq-a"><div class="faq-a-inner">We accept cash, all major credit/debit cards, checks, and bank transfers. Payment is due upon job completion. For larger projects, we offer a 50/50 split — 50% upfront, 50% when done.</div></div>
+    </div>
+    <div class="faq-item reveal reveal-delay-4" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>What does the 1-year warranty cover?</span><div class="faq-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg></div></div>
+      <div class="faq-a"><div class="faq-a-inner">Our labor warranty covers any defect in workmanship for 12 months from the date of service. If something we installed or repaired fails due to our work, we return and fix it at zero cost. Parts warranties vary by manufacturer, typically 90 days to 1 year.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <p class="section-label reveal">Get In Touch</p>
+      <h2 class="section-title reveal reveal-delay-1">Need a Plumber Now?</h2>
+      <p class="section-sub reveal reveal-delay-2" style="margin-bottom:32px">Call us directly or submit the form — we'll confirm your appointment and arrival window right away.</p>
+      <ul class="trust-list">
+        <li class="reveal reveal-delay-2">
+          <div class="tcheck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke="#e8192c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><h5>Upfront Pricing</h5><p>We quote the job before we start. The price you approve is the price you pay — no surprise charges.</p></div>
+        </li>
+        <li class="reveal reveal-delay-3">
+          <div class="tcheck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke="#e8192c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><h5>Prompt, Honest Service</h5><p>When you book, we give you a clear arrival window — and a text when your plumber is on the way.</p></div>
+        </li>
+        <li class="reveal reveal-delay-4">
+          <div class="tcheck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" stroke="#e8192c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><h5>Stop the Damage Now</h5><p>When there's a leak, our first priority is protecting your home — stopping the water first, then making a lasting repair.</p></div>
+        </li>
+      </ul>
+    </div>
+    <div class="contact-form-card reveal reveal-delay-2">
+      <h3>Service Request</h3>
+      <p class="sub">Describe the problem — we'll call you back shortly to schedule.</p>
+      <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleFormSubmit(event,'contactBookBtn','contactSuccess')">
+        <input type="hidden" name="access_key" value="9fc4d602-c723-42b7-bc20-b568b80ce3e9">
+        <input type="hidden" name="subject" value="🚨 New Service Request — Smiley Friendly Plumber">
+        <input type="hidden" name="from_name" value="Smiley Friendly Plumber Website">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" name="first_name" placeholder="John" autocomplete="given-name" required></div>
+          <div class="form-group"><label>Last Name</label><input type="text" name="last_name" placeholder="Smith" autocomplete="family-name" required></div>
+        </div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" name="phone" placeholder="(520) 204-0363" autocomplete="tel" required></div>
+        <div class="form-group"><label>Email Address</label><input type="email" name="email" placeholder="john@email.com" autocomplete="email" required></div>
+        <div class="form-group">
+          <label>Service Needed</label>
+          <select name="service" required>
+            <option value="">Select a service…</option>
+            <option>Burst Pipe</option><option>Sewage Backup</option><option>Drain Problem</option><option>Water Heater Failure</option><option>Leak Detection</option><option>Water Damage</option><option>Other Plumbing Issue</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Describe the Problem</label>
+          <textarea name="message" placeholder="e.g. Sewage is backing up into the ground floor bathroom. There's visible water damage on the wall near the toilet. Happened this morning…" style="height:100px" required></textarea>
+        </div>
+        <button class="btn-book" type="submit" id="contactBookBtn">Send Service Request →</button>
+        <p class="form-success" id="contactSuccess"></p>
+        <p class="form-note">🔒 Your information is private and secure.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Smiley Friendly Plumber</strong> · Tucson, AZ · <a href="tel:+15202040363" style="color:rgba(255,255,255,.5);text-decoration:none">(520) 204-0363</a><br>
+  <span style="margin-top:8px;display:block">Licensed & Insured Plumbers · Tucson, AZ · © 2026 Smiley Friendly Plumber · Owner: Adam Rodriguez. All rights reserved.</span>
+  <span style="margin-top:4px;display:block"></span>
+</footer>
+
+<!-- MOBILE STICKY CALL BUTTON -->
+<a href="tel:+15202040363" class="mobile-call" aria-label="Call Smiley Friendly Plumber now">
+  <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+  Tap to Call Now
+</a>
+
+<!-- MOBILE BOOKING SHEET -->
+<div class="sheet-overlay" id="sheetOverlay" onclick="closeSheetOnOverlay(event)">
+  <div class="sheet" id="sheet">
+    <div class="sheet-handle"></div>
+    <h3>Request Service</h3>
+    <p class="sheet-sub">We'll confirm your appointment within minutes of your request.</p>
+    <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleFormSubmit(event,'sheetBookBtn','sheetSuccess',true)">
+      <input type="hidden" name="access_key" value="9fc4d602-c723-42b7-bc20-b568b80ce3e9">
+      <input type="hidden" name="subject" value="🚨 Mobile Request Service — Smiley Friendly Plumber">
+      <input type="hidden" name="from_name" value="Smiley Friendly Plumber Website">
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" name="name" placeholder="John Smith" autocomplete="name" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="(520) 204-0363" autocomplete="tel" required>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="john@email.com" autocomplete="email" required>
+      </div>
+      <div class="form-group">
+        <label>Service Needed</label>
+        <select name="service" required>
+          <option value="">Select a service…</option>
+          <option>Burst Pipe</option><option>Sewage Backup</option><option>Drain Problem</option><option>Water Heater Failure</option><option>Leak Detection</option><option>Water Damage</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Describe the Problem</label>
+        <textarea name="message" placeholder="e.g. Burst pipe under the bathroom floor, water is spreading fast…" style="height:85px" required></textarea>
+      </div>
+      <button class="btn-book" type="submit" id="sheetBookBtn">Request a Plumber →</button>
+      <p class="form-success" id="sheetSuccess"></p>
+      <p class="form-note">🔒 A licensed plumber will call you back in under 5 minutes.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => revealObs.observe(el));
+
+  // FAQ accordion
+  function toggleFaq(item) {
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Web3Forms AJAX submit — no page reload
+  async function handleFormSubmit(e, btnId, successId, isSheet = false) {
+    e.preventDefault();
+    const form = e.target;
+    const btn  = document.getElementById(btnId);
+    const msg  = document.getElementById(successId);
+
+    // Loading state
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    msg.textContent = '';
+    msg.className = 'form-success';
+
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        btn.textContent = '✓ Request Sent!';
+        btn.classList.add('confirmed');
+        msg.textContent = '✅ We received your request — a plumber will call you back in under 5 minutes.';
+        msg.classList.add('success');
+        form.reset();
+        if (isSheet) setTimeout(() => closeSheet(), 3000);
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('confirmed');
+          btn.disabled = false;
+          msg.textContent = '';
+          msg.className = 'form-success';
+        }, 5000);
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      btn.textContent = originalText;
+      btn.disabled = false;
+      msg.textContent = '❌ Something went wrong. Please call us directly at (520) 204-0363.';
+      msg.classList.add('error');
+    }
+  }
+
+  // Mobile sheet
+  function openSheet() {
+    document.getElementById('sheetOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.querySelector('#sheet input[name="name"]').focus(), 350);
+  }
+  function closeSheet() {
+    document.getElementById('sheetOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function closeSheetOnOverlay(e) {
+    if (e.target === document.getElementById('sheetOverlay')) closeSheet();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
+
+  // Hide sticky call btn near footer
+  const mobileCallBtn = document.querySelector('.mobile-call');
+  const footer = document.querySelector('footer');
+  if (mobileCallBtn && footer) {
+    const footerObs = new IntersectionObserver(([entry]) => {
+      mobileCallBtn.style.opacity = entry.isIntersecting ? '0' : '';
+      mobileCallBtn.style.pointerEvents = entry.isIntersecting ? 'none' : '';
+    }, { threshold: 0 });
+    footerObs.observe(footer);
+  }
+</script>
+</body>
+</html>
